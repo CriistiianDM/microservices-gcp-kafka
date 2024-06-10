@@ -49,7 +49,7 @@ services:
       context: ms-products
       dockerfile: Dockerfile
     ports:
-      - "4701:4700"
+      - "4701:4701"
     environment:
       DB_HOST: ms_products_db
       DB_PORT: 5432
@@ -81,12 +81,12 @@ services:
     ports:
      - "5000:5000"
     environment:
-      - MONGO_URI=mongodb://ms_reviews_db:27017/reviewsdb
+      - MONGO_URI=mongodb://ms_reviews_db:27017/reviews
     depends_on:
       - ms_reviews_db
 
   ms_reviews_db:
-    image: mongo:4.4
+    image: mongo:7.0
     ports:
       - "27017:27017"
     volumes:
